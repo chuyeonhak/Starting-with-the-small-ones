@@ -39,7 +39,6 @@ class ViewController: UIViewController {
     private func commonInit() {
         addComponent()
         setConstraints()
-        setCocoaEvent()
         bind()
     }
     
@@ -65,8 +64,6 @@ class ViewController: UIViewController {
         }
     }
     
-    private func setCocoaEvent() {
-    }
     
     private func bind() {
         let input = ViewModel.Input(remainingTime: startButton.rx.tap
