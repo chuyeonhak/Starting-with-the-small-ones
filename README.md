@@ -1,6 +1,6 @@
 # Starting-with-the-small-ones
 
-<div align=center><h4> RxTimer </h4></div>
+<div align=center><h2> RxTimer ⏰ </h2></div>
 
 - Rx를 이용한 타이머
 <br>
