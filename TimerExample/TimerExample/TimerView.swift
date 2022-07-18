@@ -133,9 +133,6 @@ class TimerView: UIView {
             $0.center.equalToSuperview()
         }
         
-        hourHand.transform = CGAffineTransform(rotationAngle: .pi * 1 / 2)
-        miniuteHand.transform = CGAffineTransform(rotationAngle: 12 / 60)
-        secondHand.transform = CGAffineTransform(rotationAngle: .pi * 114 / 120 * 2)
         
     }
     
