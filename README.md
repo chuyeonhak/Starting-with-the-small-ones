@@ -7,5 +7,5 @@
 1. textField에 숫자를 입력 후 greenButton을 누르면 실행
 <br>
 2. timeOver 후 다시 숫자 입력 가능
-<br>
-3. 기능 업데이트할 예정
+
+- Swift Timer
