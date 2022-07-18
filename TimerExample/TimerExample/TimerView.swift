@@ -33,6 +33,22 @@ class TimerView: UIView {
         $0.textColor = .black
     }
     
+    let clockView = UIImageView().then {
+        $0.image = UIImage(named: "clock")
+    }
+    
+    let hourHand = UIView().then {
+        $0.backgroundColor = .black
+    }
+    
+    let miniuteHand = UIView().then {
+        $0.backgroundColor = .black
+    }
+    
+    let secondHand = UIView().then {
+        $0.backgroundColor = .red
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -42,6 +58,23 @@ class TimerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        let hourMaskLayer = CALayer(),
+            miniuteMaskLayer = CALayer(),
+            secondMaskLayer = CALayer()
+        
+        _ = [hourMaskLayer, miniuteMaskLayer, secondMaskLayer].map { $0.backgroundColor = UIColor.white.cgColor }
+        
+        hourMaskLayer.frame = CGRect(x: 0, y: 0, width: 2, height: hourHand.bounds.height / 2)
+        hourHand.layer.mask = hourMaskLayer
+        
+        miniuteMaskLayer.frame = CGRect(x: 0, y: 0, width: 2, height: miniuteHand.bounds.height / 2)
+        miniuteHand.layer.mask = miniuteMaskLayer
+        
+        secondMaskLayer.frame = CGRect(x: 0, y: 0, width: 2, height: secondHand.bounds.height / 2)
+        secondHand.layer.mask = secondMaskLayer
+    }
+    
     private func commonInit() {
         addComponent()
         setConstraints()
@@ -49,7 +82,9 @@ class TimerView: UIView {
     }
     
     private func addComponent() {
-        [backButton, countTextField, startButton, remainingTime].forEach(addSubview)
+        [backButton, countTextField, startButton, remainingTime, clockView].forEach(addSubview)
+        
+        [hourHand, miniuteHand, secondHand].forEach(clockView.addSubview)
     }
     
     private func setConstraints() {
@@ -73,12 +108,40 @@ class TimerView: UIView {
             $0.centerY.equalTo(countTextField)
             $0.size.equalTo(30)
         }
+        
+        clockView.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide).inset(32)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo(200)
+        }
+        
+        hourHand.snp.makeConstraints {
+            $0.width.equalTo(3)
+            $0.height.equalToSuperview().inset(56)
+            $0.center.equalToSuperview()
+        }
+        
+        miniuteHand.snp.makeConstraints {
+            $0.width.equalTo(2)
+            $0.height.equalToSuperview().inset(40)
+            $0.center.equalToSuperview()
+        }
+        
+        secondHand.snp.makeConstraints {
+            $0.width.equalTo(1)
+            $0.height.equalToSuperview().inset(30)
+            $0.center.equalToSuperview()
+        }
+        
+        hourHand.transform = CGAffineTransform(rotationAngle: .pi * 1 / 2)
+        miniuteHand.transform = CGAffineTransform(rotationAngle: 12 / 60)
+        secondHand.transform = CGAffineTransform(rotationAngle: .pi * 114 / 120 * 2)
+        
     }
     
     private func setCocoa() {
         backButton.rx.tap
             .bind { [unowned self] in
-//                removeFromSuperview()
                 superview?.removeFromSuperview()
             }.disposed(by: disposeBag)
     }
