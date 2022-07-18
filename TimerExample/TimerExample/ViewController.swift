@@ -70,8 +70,8 @@ class ViewController: UIViewController {
             }.disposed(by: disposeBag)
         
         combineTimerButton.rx.tap
-            .bind {
-                
+            .bind { [weak self] in
+                self?.addSubView(view: CombineTimerView())
             }.disposed(by: disposeBag)
     }
     

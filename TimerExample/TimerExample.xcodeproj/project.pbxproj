@@ -12,6 +12,7 @@
 		EFCA14D22884CF800076E678 /* RxTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14D12884CF800076E678 /* RxTimerView.swift */; };
 		EFCA14D42884CF8F0076E678 /* RxTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14D32884CF8F0076E678 /* RxTimerViewModel.swift */; };
 		EFCA14D92884CFF20076E678 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14D82884CFF20076E678 /* TimerView.swift */; };
+		EFCA14DB2885181A0076E678 /* CombineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14DA2885181A0076E678 /* CombineExtension.swift */; };
 		EFCDAA402884032F00735604 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCDAA3F2884032F00735604 /* AppDelegate.swift */; };
 		EFCDAA422884032F00735604 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCDAA412884032F00735604 /* SceneDelegate.swift */; };
 		EFCDAA442884032F00735604 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCDAA432884032F00735604 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		EFCA14D12884CF800076E678 /* RxTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTimerView.swift; sourceTree = "<group>"; };
 		EFCA14D32884CF8F0076E678 /* RxTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTimerViewModel.swift; sourceTree = "<group>"; };
 		EFCA14D82884CFF20076E678 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		EFCA14DA2885181A0076E678 /* CombineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineExtension.swift; sourceTree = "<group>"; };
 		EFCDAA3C2884032F00735604 /* TimerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCDAA3F2884032F00735604 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCDAA412884032F00735604 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				EFCA14CF2884CF760076E678 /* CombineTimerView.swift */,
+				EFCA14DA2885181A0076E678 /* CombineExtension.swift */,
 			);
 			path = CombineTimer;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				EFCA14D22884CF800076E678 /* RxTimerView.swift in Sources */,
 				EFCDAA402884032F00735604 /* AppDelegate.swift in Sources */,
 				EFCA14CC2884CF590076E678 /* SwiftTimerView.swift in Sources */,
+				EFCA14DB2885181A0076E678 /* CombineExtension.swift in Sources */,
 				EFCA14D02884CF760076E678 /* CombineTimerView.swift in Sources */,
 				EFCA14D42884CF8F0076E678 /* RxTimerViewModel.swift in Sources */,
 				EFCDAA422884032F00735604 /* SceneDelegate.swift in Sources */,

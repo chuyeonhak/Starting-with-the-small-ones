@@ -39,9 +39,7 @@ class RxTimerView: UIView {
     }
     
     private func setConstraints() {
-        timerView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        timerView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     
     private func bind() {
