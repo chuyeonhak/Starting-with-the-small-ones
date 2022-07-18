@@ -13,6 +13,8 @@ import Then
 
 class CombineTimerView: UIView {
     var cancellables = Set<AnyCancellable>()
+    var timer: Cancellable?,
+        remainingTime = Int()
     let timerView = TimerView()
     
     override init(frame: CGRect) {
@@ -42,9 +44,29 @@ class CombineTimerView: UIView {
     private func bind() {
         timerView.startButton
             .publisher(for: .touchUpInside)
+            .filter{ [unowned self] _ in Int(timerView.countTextField.text ?? "") ?? 0 != 0 }
             .sink { [unowned self] _ in
-                print("setting Combine Touch Event")
+                remainingTime = Int(timerView.countTextField.text ?? "") ?? 0
+                timerStart()
             }.store(in: &cancellables)
+    }
+    
+    private func timerStart() {
+        timer = Timer
+            .publish(every: 1, on: .main, in: .common)
+            .autoconnect()
+            .scan(0, { counter, _ in counter + 1 })
+            .filter{ [unowned self] counter in remainingTime - counter >= 0 }
+            .sink() { [unowned self] counter in timerView.remainingTime.text =  makeTimeStr(remainingTime - counter) }
+    }
+    
+    private func makeTimeStr(_ time: Int) -> String {
+        let hours = time / 3600,
+            minutes = time / 60 % 60,
+            second = time % 60,
+            timeStr = String(format:"%02i:%02i:%02i", hours, minutes, second)
+        
+        return timeStr
     }
     
     deinit {
