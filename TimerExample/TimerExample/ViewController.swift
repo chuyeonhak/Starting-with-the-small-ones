@@ -11,23 +11,26 @@ import Then
 import RxSwift
 import RxCocoa
 
-
 class ViewController: UIViewController {
     let disposeBag = DisposeBag()
-    var viewModel: ViewModel?
-    
-    private let remainingTime = UILabel().then {
-        $0.text = "00:00:00"
-        $0.font = UIFont.systemFont(ofSize: 15)
+    let stackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
     }
     
-    private let countTextField = UITextField().then {
-        $0.borderStyle = .roundedRect
+    let swiftTimerButton = UIButton().then {
+        $0.setTitle("swiftTimerView", for: .normal)
+        $0.setTitleColor(UIColor.blue, for: .normal)
     }
     
-    private let startButton = UIButton().then {
-        $0.layer.cornerRadius = 15
-        $0.backgroundColor = .green
+    let rxTimerButton = UIButton().then {
+        $0.setTitle("RxTimerView", for: .normal)
+        $0.setTitleColor(UIColor.orange, for: .normal)
+    }
+    
+    let combineTimerButton = UIButton().then {
+        $0.setTitle("swiftTimerView", for: .normal)
+        $0.setTitleColor(UIColor.black, for: .normal)
     }
     
     override func viewDidLoad() {
@@ -43,45 +46,41 @@ class ViewController: UIViewController {
     }
     
     private func addComponent() {
-        [remainingTime, countTextField, startButton].forEach(view.addSubview)
+        view.addSubview(stackView)
+        
+        [swiftTimerButton, rxTimerButton, combineTimerButton].forEach(stackView.addArrangedSubview)
     }
     
     private func setConstraints() {
-        remainingTime.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
-        countTextField.snp.makeConstraints {
-            $0.top.equalTo(remainingTime.snp.bottom).offset(8)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(100)
-        }
-        
-        startButton.snp.makeConstraints {
-            $0.leading.equalTo(countTextField.snp.trailing).offset(8)
-            $0.centerY.equalTo(countTextField)
-            $0.size.equalTo(30)
+        stackView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     
     private func bind() {
-        let input = ViewModel.Input(remainingTime: startButton.rx.tap
-            .take(1)
-            .filter{ [unowned self] in countTextField.text?.isEmpty == false }
-            .map { [unowned self] in countTextField.text! }),
-        viewModel = ViewModel(input: input)
+        swiftTimerButton.rx.tap
+            .bind { [weak self] in
+                self?.addSubView(view: SwiftTimerView())
+            }.disposed(by: disposeBag)
         
-        self.viewModel = viewModel
+        rxTimerButton.rx.tap
+            .bind { [weak self] in
+                self?.addSubView(view: RxTimerView())
+            }.disposed(by: disposeBag)
         
-        viewModel.output?.timeCount
-            .drive(remainingTime.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel.output?.timeOver
-            .drive { [unowned self] _ in bind(); print("timeover") }
-            .disposed(by: disposeBag)
+        combineTimerButton.rx.tap
+            .bind {
+                
+            }.disposed(by: disposeBag)
     }
     
+    private func addSubView<T: UIView>(view: T) {
+        self.view.addSubview(view)
+        
+        view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 }
 

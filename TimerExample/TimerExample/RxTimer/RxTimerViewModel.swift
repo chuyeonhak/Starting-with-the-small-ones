@@ -1,15 +1,15 @@
 //
-//  ViewModel.swift
+//  RxTimerViewModel.swift
 //  TimerExample
 //
-//  Created by chuchu on 2022/07/17.
+//  Created by chuchu on 2022/07/18.
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
 
-class ViewModel {
+class RxTimerViewModel {
     typealias InputType = Input
     typealias OutputType = Output
     typealias DependencyModelType = Model
@@ -58,7 +58,7 @@ class ViewModel {
     }
 }
 
-extension ViewModel {
+extension RxTimerViewModel {
     struct Model {
         let timeCount = BehaviorRelay<String>(value: "00:00:00")
         let timeOver = PublishSubject<Void>()

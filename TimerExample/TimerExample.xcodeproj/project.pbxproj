@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFCA14CC2884CF590076E678 /* SwiftTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14CB2884CF590076E678 /* SwiftTimerView.swift */; };
+		EFCA14D02884CF760076E678 /* CombineTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14CF2884CF760076E678 /* CombineTimerView.swift */; };
+		EFCA14D22884CF800076E678 /* RxTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14D12884CF800076E678 /* RxTimerView.swift */; };
+		EFCA14D42884CF8F0076E678 /* RxTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14D32884CF8F0076E678 /* RxTimerViewModel.swift */; };
+		EFCA14D92884CFF20076E678 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14D82884CFF20076E678 /* TimerView.swift */; };
 		EFCDAA402884032F00735604 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCDAA3F2884032F00735604 /* AppDelegate.swift */; };
 		EFCDAA422884032F00735604 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCDAA412884032F00735604 /* SceneDelegate.swift */; };
 		EFCDAA442884032F00735604 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCDAA432884032F00735604 /* ViewController.swift */; };
@@ -18,10 +23,14 @@
 		EFCDAA592884034B00735604 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFCDAA582884034B00735604 /* RxSwift */; };
 		EFCDAA5C2884037700735604 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EFCDAA5B2884037700735604 /* Then */; };
 		EFCDAA5F2884038800735604 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EFCDAA5E2884038800735604 /* SnapKit */; };
-		EFCDAA6128840ABD00735604 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCDAA6028840ABD00735604 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EFCA14CB2884CF590076E678 /* SwiftTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTimerView.swift; sourceTree = "<group>"; };
+		EFCA14CF2884CF760076E678 /* CombineTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTimerView.swift; sourceTree = "<group>"; };
+		EFCA14D12884CF800076E678 /* RxTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTimerView.swift; sourceTree = "<group>"; };
+		EFCA14D32884CF8F0076E678 /* RxTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTimerViewModel.swift; sourceTree = "<group>"; };
+		EFCA14D82884CFF20076E678 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		EFCDAA3C2884032F00735604 /* TimerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCDAA3F2884032F00735604 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCDAA412884032F00735604 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +39,6 @@
 		EFCDAA482884033100735604 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFCDAA4B2884033100735604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFCDAA4D2884033100735604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFCDAA6028840ABD00735604 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +57,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EFCA14D52884CFB80076E678 /* RxTimer */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA14D12884CF800076E678 /* RxTimerView.swift */,
+				EFCA14D32884CF8F0076E678 /* RxTimerViewModel.swift */,
+			);
+			path = RxTimer;
+			sourceTree = "<group>";
+		};
+		EFCA14D62884CFC00076E678 /* SwiftTimer */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA14CB2884CF590076E678 /* SwiftTimerView.swift */,
+			);
+			path = SwiftTimer;
+			sourceTree = "<group>";
+		};
+		EFCA14D72884CFDA0076E678 /* CombineTimer */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA14CF2884CF760076E678 /* CombineTimerView.swift */,
+			);
+			path = CombineTimer;
+			sourceTree = "<group>";
+		};
 		EFCDAA332884032F00735604 = {
 			isa = PBXGroup;
 			children = (
@@ -70,8 +103,11 @@
 			children = (
 				EFCDAA3F2884032F00735604 /* AppDelegate.swift */,
 				EFCDAA412884032F00735604 /* SceneDelegate.swift */,
+				EFCA14D82884CFF20076E678 /* TimerView.swift */,
+				EFCA14D62884CFC00076E678 /* SwiftTimer */,
+				EFCA14D72884CFDA0076E678 /* CombineTimer */,
+				EFCA14D52884CFB80076E678 /* RxTimer */,
 				EFCDAA432884032F00735604 /* ViewController.swift */,
-				EFCDAA6028840ABD00735604 /* ViewModel.swift */,
 				EFCDAA452884032F00735604 /* Main.storyboard */,
 				EFCDAA482884033100735604 /* Assets.xcassets */,
 				EFCDAA4A2884033100735604 /* LaunchScreen.storyboard */,
@@ -163,9 +199,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCA14D92884CFF20076E678 /* TimerView.swift in Sources */,
 				EFCDAA442884032F00735604 /* ViewController.swift in Sources */,
+				EFCA14D22884CF800076E678 /* RxTimerView.swift in Sources */,
 				EFCDAA402884032F00735604 /* AppDelegate.swift in Sources */,
-				EFCDAA6128840ABD00735604 /* ViewModel.swift in Sources */,
+				EFCA14CC2884CF590076E678 /* SwiftTimerView.swift in Sources */,
+				EFCA14D02884CF760076E678 /* CombineTimerView.swift in Sources */,
+				EFCA14D42884CF8F0076E678 /* RxTimerViewModel.swift in Sources */,
 				EFCDAA422884032F00735604 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
