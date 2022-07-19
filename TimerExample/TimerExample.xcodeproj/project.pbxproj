@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF67B9CB2886394A002A9B68 /* timer.gif in Resources */ = {isa = PBXBuildFile; fileRef = EF67B9CA2886394A002A9B68 /* timer.gif */; };
 		EFCA14CC2884CF590076E678 /* SwiftTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14CB2884CF590076E678 /* SwiftTimerView.swift */; };
 		EFCA14D02884CF760076E678 /* CombineTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14CF2884CF760076E678 /* CombineTimerView.swift */; };
 		EFCA14D22884CF800076E678 /* RxTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA14D12884CF800076E678 /* RxTimerView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF67B9CA2886394A002A9B68 /* timer.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = timer.gif; sourceTree = "<group>"; };
 		EFCA14CB2884CF590076E678 /* SwiftTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTimerView.swift; sourceTree = "<group>"; };
 		EFCA14CF2884CF760076E678 /* CombineTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTimerView.swift; sourceTree = "<group>"; };
 		EFCA14D12884CF800076E678 /* RxTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTimerView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				EFCA14D72884CFDA0076E678 /* CombineTimer */,
 				EFCA14D52884CFB80076E678 /* RxTimer */,
 				EFCDAA432884032F00735604 /* ViewController.swift */,
+				EF67B9CA2886394A002A9B68 /* timer.gif */,
 				EFCDAA452884032F00735604 /* Main.storyboard */,
 				EFCDAA482884033100735604 /* Assets.xcassets */,
 				EFCDAA4A2884033100735604 /* LaunchScreen.storyboard */,
@@ -191,6 +194,7 @@
 			files = (
 				EFCDAA4C2884033100735604 /* LaunchScreen.storyboard in Resources */,
 				EFCDAA492884033100735604 /* Assets.xcassets in Resources */,
+				EF67B9CB2886394A002A9B68 /* timer.gif in Resources */,
 				EFCDAA472884032F00735604 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

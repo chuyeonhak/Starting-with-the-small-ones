@@ -20,6 +20,7 @@ class TimerView: UIView {
     }
     let countTextField = UITextField().then {
         $0.borderStyle = .roundedRect
+        $0.keyboardType = .numberPad
     }
     
     let startButton = UIButton().then {
