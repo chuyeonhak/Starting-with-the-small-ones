@@ -60,6 +60,10 @@ class RxTimerView: UIView {
                     self.timerView.miniuteHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (60.0 - (Double(time.components(separatedBy: ":")[1] ) ?? 0.0)) / 60)
                     self.timerView.secondHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (60.0 - (Double(time.components(separatedBy: ":")[2] ) ?? 0.0)) / 60)
                 }
+                
+                UIView.transition(with: timerView.pageView, duration: 1, options: .transitionCurlUp) { }
+
+
             }.disposed(by: disposeBag)
         
         viewModel.output?.timeOver

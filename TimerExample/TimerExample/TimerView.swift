@@ -31,7 +31,7 @@ class TimerView: UIView {
     let remainingTime = UILabel().then {
         $0.text = "00:00:00"
         $0.font = .systemFont(ofSize: 16)
-        $0.textColor = .black
+        $0.textColor = .white
     }
     
     let clockView = UIImageView().then {
@@ -48,6 +48,10 @@ class TimerView: UIView {
     
     let secondHand = UIView().then {
         $0.backgroundColor = .red
+    }
+    
+    let pageView = UIView().then {
+        $0.backgroundColor = .blue
     }
     
     override init(frame: CGRect) {
@@ -83,8 +87,9 @@ class TimerView: UIView {
     }
     
     private func addComponent() {
-        [backButton, countTextField, startButton, remainingTime, clockView].forEach(addSubview)
+        [backButton, countTextField, startButton, clockView, pageView].forEach(addSubview)
         
+        pageView.addSubview(remainingTime)
         [hourHand, miniuteHand, secondHand].forEach(clockView.addSubview)
     }
     
@@ -134,7 +139,11 @@ class TimerView: UIView {
             $0.center.equalToSuperview()
         }
         
-        
+        pageView.snp.makeConstraints {
+            $0.width.equalTo(120)
+            $0.height.equalTo(30)
+            $0.center.equalToSuperview()
+        }
     }
     
     private func setCocoa() {
