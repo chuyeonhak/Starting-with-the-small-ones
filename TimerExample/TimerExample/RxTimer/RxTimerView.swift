@@ -54,9 +54,13 @@ class RxTimerView: UIView {
         viewModel.output?.timeCount
             .drive { [unowned self] time in
                 timerView.remainingTime.text = time
-                timerView.hourHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (Double(time.components(separatedBy: ":")[0] ) ?? 0.0) / 12)
-                timerView.miniuteHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (Double(time.components(separatedBy: ":")[1] ) ?? 0.0) / 60)
-                timerView.secondHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (Double(time.components(separatedBy: ":")[2] ) ?? 0.0) / 60)
+                
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear) {
+                    self.timerView.hourHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (12.0 - (Double(time.components(separatedBy: ":")[0] ) ?? 0.0)) / 12)
+                    self.timerView.miniuteHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (60.0 - (Double(time.components(separatedBy: ":")[1] ) ?? 0.0)) / 60)
+                    self.timerView.secondHand.transform = CGAffineTransform(rotationAngle: 2.0 * .pi * (60.0 - (Double(time.components(separatedBy: ":")[2] ) ?? 0.0)) / 60)
+                }
+
             }.disposed(by: disposeBag)
         
         viewModel.output?.timeOver
