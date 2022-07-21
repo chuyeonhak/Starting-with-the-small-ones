@@ -49,8 +49,51 @@ class ViewController: UIViewController {
     
     private func bind() {
         rockPaperScissorsButton.rx.tap
-            .bind {
-                print("rockPaperScissorsButton")
+            .bind { [unowned self] in
+                let view = TestView()
+                
+                self.view.addSubview(view)
+                view.snp.makeConstraints {
+                    $0.edges.equalToSuperview()
+                }
+            }.disposed(by: disposeBag)
+    }
+}
+
+class TestView: ReactivableView {
+    let testButton = UIButton().then {
+        $0.backgroundColor = .black
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func commonInit() {
+        addComponent()
+        setConstraints()
+        bind()
+    }
+    
+    override func addComponent() {
+        self.addSubview(testButton)
+    }
+    
+    override func setConstraints() {
+        testButton.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    override func bind() {
+        testButton.rx.tap
+            .bind { [unowned self] in
+                removeFromSuperview()
             }.disposed(by: disposeBag)
     }
 }
