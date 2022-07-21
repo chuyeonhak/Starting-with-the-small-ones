@@ -28,6 +28,7 @@ class ReactivableView: UIView, BaseViewProtocol {
     func bind() { }
     
     deinit {
+        NotificationCenter.default.removeObserver(self)
         print(accessibilityIdentifier!, #function)
     }
 }
