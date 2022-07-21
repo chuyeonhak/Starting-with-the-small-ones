@@ -13,16 +13,16 @@ import SnapKit
 import Then
 
 class RockPaperSissorsView: ReactivableView {
-    let rockLabel = UILabel().then {
-        $0.text = "주먹"
+    let rockLabel = UIView().then {
+        $0.backgroundColor = .red
     }
     
-    let paperLabel = UILabel().then {
-        $0.text = "가위"
+    let paperLabel = UIView().then {
+        $0.backgroundColor = .blue
     }
     
-    let sissorsLabel = UILabel().then {
-        $0.text = "보"
+    let sissorsLabel = UIView().then {
+        $0.backgroundColor = .yellow
     }
     
     override init(frame: CGRect) {
@@ -48,23 +48,42 @@ class RockPaperSissorsView: ReactivableView {
         rockLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
             $0.leading.equalToSuperview()
-            $0.size.equalToSuperview().dividedBy(3).inset(5)
+            $0.size.equalTo(self.snp.width).dividedBy(3)
         }
         
         paperLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
             $0.leading.equalTo(rockLabel.snp.trailing)
-            $0.size.equalToSuperview().dividedBy(3).inset(5)
+            $0.size.equalTo(self.snp.width).dividedBy(3)
         }
         
         sissorsLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
             $0.leading.equalTo(paperLabel.snp.trailing)
-            $0.size.equalToSuperview().dividedBy(3).inset(5)
+            $0.size.equalTo(self.snp.width).dividedBy(3)
         }
     }
     
     override func bind() {
+        let rockTap = UITapGestureRecognizer(),
+            paperTap = UITapGestureRecognizer(),
+            sissorsTap = UITapGestureRecognizer()
+        rockLabel.addGestureRecognizer(rockTap)
+        paperLabel.addGestureRecognizer(paperTap)
+        sissorsLabel.addGestureRecognizer(sissorsTap)
+        
+        rockTap.rx.event
+            .bind { _ in
+                print("rock")
+            }.disposed(by: disposeBag)
+        paperTap.rx.event
+            .bind { _ in
+                print("paper")
+            }.disposed(by: disposeBag)
+        sissorsTap.rx.event
+            .bind { _ in
+                print("sissors")
+            }.disposed(by: disposeBag)
         
     }
 }
