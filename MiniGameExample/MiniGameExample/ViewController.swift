@@ -6,14 +6,52 @@
 //
 
 import UIKit
+import Then
+import RxSwift
+import RxCocoa
+import SnapKit
 
 class ViewController: UIViewController {
-
+    let disposeBag = DisposeBag()
+    
+    let miniGameStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+    }
+    
+    let rockPaperScissorsButton = UIButton().then {
+        $0.setImage(UIImage(named: "lockPaperScissors"), for: .normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        commonInit()
     }
-
-
+    
+    private func commonInit() {
+        addComponent()
+        setConstraints()
+        bind()
+    }
+    
+    private func addComponent() {
+        view.addSubview(miniGameStackView)
+        
+        [rockPaperScissorsButton].forEach(miniGameStackView.addArrangedSubview)
+    }
+    
+    private func setConstraints() {
+        miniGameStackView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+    private func bind() {
+        rockPaperScissorsButton.rx.tap
+            .bind {
+                print("rockPaperScissorsButton")
+            }.disposed(by: disposeBag)
+    }
 }
 

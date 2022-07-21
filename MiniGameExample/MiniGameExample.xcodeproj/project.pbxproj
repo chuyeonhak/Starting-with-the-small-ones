@@ -18,6 +18,13 @@
 		EFA66BB5288950EB006F46A0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EFA66BB4288950EB006F46A0 /* RxCocoa */; };
 		EFA66BB7288950EB006F46A0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EFA66BB6288950EB006F46A0 /* RxRelay */; };
 		EFA66BB9288950EB006F46A0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFA66BB8288950EB006F46A0 /* RxSwift */; };
+		EFA66BBB288958F8006F46A0 /* Extension + RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BBA288958F8006F46A0 /* Extension + RxSwift.swift */; };
+		EFA66BBE28895AEA006F46A0 /* Extension + UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BBD28895AEA006F46A0 /* Extension + UITextView.swift */; };
+		EFA66BC028895B34006F46A0 /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BBF28895B34006F46A0 /* Extension + UIColor.swift */; };
+		EFA66BC328895B7A006F46A0 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EFA66BC228895B7A006F46A0 /* Toast */; };
+		EFA66BC528895BA9006F46A0 /* Extension + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BC428895BA9006F46A0 /* Extension + UITextField.swift */; };
+		EFA66BC728895C49006F46A0 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BC628895C49006F46A0 /* Extension + UIViewController.swift */; };
+		EFA66BC928895CC7006F46A0 /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BC828895CC7006F46A0 /* Extension + Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,12 @@
 		EFA66BA22889505E006F46A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFA66BA52889505E006F46A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFA66BA72889505E006F46A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFA66BBA288958F8006F46A0 /* Extension + RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + RxSwift.swift"; sourceTree = "<group>"; };
+		EFA66BBD28895AEA006F46A0 /* Extension + UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITextView.swift"; sourceTree = "<group>"; };
+		EFA66BBF28895B34006F46A0 /* Extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
+		EFA66BC428895BA9006F46A0 /* Extension + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITextField.swift"; sourceTree = "<group>"; };
+		EFA66BC628895C49006F46A0 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		EFA66BC828895CC7006F46A0 /* Extension + Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA66BC328895B7A006F46A0 /* Toast in Frameworks */,
 				EFA66BB5288950EB006F46A0 /* RxCocoa in Frameworks */,
 				EFA66BAF288950C1006F46A0 /* SnapKit in Frameworks */,
 				EFA66BB9288950EB006F46A0 /* RxSwift in Frameworks */,
@@ -69,12 +83,26 @@
 				EFA66B992889505D006F46A0 /* AppDelegate.swift */,
 				EFA66B9B2889505D006F46A0 /* SceneDelegate.swift */,
 				EFA66B9D2889505D006F46A0 /* ViewController.swift */,
+				EFA66BBC28895969006F46A0 /* Extension */,
 				EFA66B9F2889505D006F46A0 /* Main.storyboard */,
 				EFA66BA22889505E006F46A0 /* Assets.xcassets */,
 				EFA66BA42889505E006F46A0 /* LaunchScreen.storyboard */,
 				EFA66BA72889505E006F46A0 /* Info.plist */,
 			);
 			path = MiniGameExample;
+			sourceTree = "<group>";
+		};
+		EFA66BBC28895969006F46A0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EFA66BC828895CC7006F46A0 /* Extension + Array.swift */,
+				EFA66BBA288958F8006F46A0 /* Extension + RxSwift.swift */,
+				EFA66BBF28895B34006F46A0 /* Extension + UIColor.swift */,
+				EFA66BC428895BA9006F46A0 /* Extension + UITextField.swift */,
+				EFA66BBD28895AEA006F46A0 /* Extension + UITextView.swift */,
+				EFA66BC628895C49006F46A0 /* Extension + UIViewController.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +127,7 @@
 				EFA66BB4288950EB006F46A0 /* RxCocoa */,
 				EFA66BB6288950EB006F46A0 /* RxRelay */,
 				EFA66BB8288950EB006F46A0 /* RxSwift */,
+				EFA66BC228895B7A006F46A0 /* Toast */,
 			);
 			productName = MiniGameExample;
 			productReference = EFA66B962889505D006F46A0 /* MiniGameExample.app */;
@@ -132,6 +161,7 @@
 				EFA66BAD288950C1006F46A0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EFA66BB0288950CE006F46A0 /* XCRemoteSwiftPackageReference "Then" */,
 				EFA66BB3288950EB006F46A0 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EFA66BC128895B7A006F46A0 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = EFA66B972889505D006F46A0 /* Products */;
 			projectDirPath = "";
@@ -161,8 +191,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFA66B9E2889505D006F46A0 /* ViewController.swift in Sources */,
+				EFA66BBB288958F8006F46A0 /* Extension + RxSwift.swift in Sources */,
+				EFA66BC728895C49006F46A0 /* Extension + UIViewController.swift in Sources */,
+				EFA66BC928895CC7006F46A0 /* Extension + Array.swift in Sources */,
+				EFA66BBE28895AEA006F46A0 /* Extension + UITextView.swift in Sources */,
 				EFA66B9A2889505D006F46A0 /* AppDelegate.swift in Sources */,
 				EFA66B9C2889505D006F46A0 /* SceneDelegate.swift in Sources */,
+				EFA66BC028895B34006F46A0 /* Extension + UIColor.swift in Sources */,
+				EFA66BC528895BA9006F46A0 /* Extension + UITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -292,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -406,6 +442,14 @@
 				kind = branch;
 			};
 		};
+		EFA66BC128895B7A006F46A0 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -433,6 +477,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EFA66BB3288950EB006F46A0 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		EFA66BC228895B7A006F46A0 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFA66BC128895B7A006F46A0 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
