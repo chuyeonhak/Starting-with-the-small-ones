@@ -50,13 +50,13 @@ class ViewController: UIViewController {
     private func bind() {
         rockPaperScissorsButton.rx.tap
             .bind { [unowned self] in
-                let view = TestView()
-                
-                self.view.addSubview(view)
-                view.snp.makeConstraints {
-                    $0.edges.equalToSuperview()
-                }
+                addSubView(RockPaperSissorsView())
             }.disposed(by: disposeBag)
+    }
+    
+    private func addSubView(_ view: ReactivableView) {
+        self.view.addSubview(view)
+        view.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
 }
 

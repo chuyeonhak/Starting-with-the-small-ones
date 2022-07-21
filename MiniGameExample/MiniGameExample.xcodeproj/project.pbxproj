@@ -28,6 +28,8 @@
 		EFA66BCB28896041006F46A0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BCA28896041006F46A0 /* ViewModel.swift */; };
 		EFA66BCD28896078006F46A0 /* ReactivableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BCC28896078006F46A0 /* ReactivableView.swift */; };
 		EFA66BD02889662F006F46A0 /* DeinitPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BCF2889662F006F46A0 /* DeinitPrinter.swift */; };
+		EFA66BD2288A14FF006F46A0 /* RockPaperSissorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD1288A14FF006F46A0 /* RockPaperSissorsView.swift */; };
+		EFA66BD4288A150D006F46A0 /* RockPaperSissorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD3288A150D006F46A0 /* RockPaperSissorsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		EFA66BCA28896041006F46A0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EFA66BCC28896078006F46A0 /* ReactivableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactivableView.swift; sourceTree = "<group>"; };
 		EFA66BCF2889662F006F46A0 /* DeinitPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeinitPrinter.swift; sourceTree = "<group>"; };
+		EFA66BD1288A14FF006F46A0 /* RockPaperSissorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperSissorsView.swift; sourceTree = "<group>"; };
+		EFA66BD3288A150D006F46A0 /* RockPaperSissorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperSissorsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				EFA66B992889505D006F46A0 /* AppDelegate.swift */,
 				EFA66B9B2889505D006F46A0 /* SceneDelegate.swift */,
 				EFA66B9D2889505D006F46A0 /* ViewController.swift */,
+				EFA66BD1288A14FF006F46A0 /* RockPaperSissorsView.swift */,
+				EFA66BD3288A150D006F46A0 /* RockPaperSissorsViewModel.swift */,
 				EFA66BCE288961DD006F46A0 /* Declaration */,
 				EFA66BBC28895969006F46A0 /* Extension */,
 				EFA66B9F2889505D006F46A0 /* Main.storyboard */,
@@ -210,6 +216,7 @@
 				EFA66BCD28896078006F46A0 /* ReactivableView.swift in Sources */,
 				EFA66BCB28896041006F46A0 /* ViewModel.swift in Sources */,
 				EFA66B9E2889505D006F46A0 /* ViewController.swift in Sources */,
+				EFA66BD4288A150D006F46A0 /* RockPaperSissorsViewModel.swift in Sources */,
 				EFA66BBB288958F8006F46A0 /* Extension + RxSwift.swift in Sources */,
 				EFA66BC728895C49006F46A0 /* Extension + UIViewController.swift in Sources */,
 				EFA66BC928895CC7006F46A0 /* Extension + Array.swift in Sources */,
@@ -218,6 +225,7 @@
 				EFA66B9C2889505D006F46A0 /* SceneDelegate.swift in Sources */,
 				EFA66BC028895B34006F46A0 /* Extension + UIColor.swift in Sources */,
 				EFA66BC528895BA9006F46A0 /* Extension + UITextField.swift in Sources */,
+				EFA66BD2288A14FF006F46A0 /* RockPaperSissorsView.swift in Sources */,
 				EFA66BD02889662F006F46A0 /* DeinitPrinter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
