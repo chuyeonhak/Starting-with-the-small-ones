@@ -28,9 +28,7 @@ class ViewController: UIViewController {
     }
     private let disposeBag = DisposeBag()
     
-    private lazy var animationView = SKView().then {
-        $0.backgroundColor = .black
-    }
+    private var animationView: SKView?
     
     let controlButton = UIButton().then {
         $0.setTitle(AnimationState.play.title, for: .normal)
@@ -54,14 +52,10 @@ class ViewController: UIViewController {
     
     private func addComponent() {
         self.view.backgroundColor = .black
-        [animationView, controlButton, stopButton].forEach(view.addSubview)
+        [controlButton, stopButton].forEach(view.addSubview)
     }
     
     private func setConstraints() {
-        animationView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
         controlButton.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(16)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
@@ -77,18 +71,27 @@ class ViewController: UIViewController {
     private func bind() {
         controlButton.rx.tap
             .bind { [unowned self] in
-                switch animationView.scene {
+                switch animationView {
                 case nil:
                     let scene = SnowScene()
+                    animationView = SKView()
+                    
+                    guard let animationView = animationView else { return }
+                    
+                    view.insertSubview(animationView, at: 0)
+                    animationView.snp.makeConstraints {
+                        $0.edges.equalToSuperview()
+                    }
+                    
                     animationView.presentScene(scene)
                     controlButton.setTitle(AnimationState.pause.title, for: .normal)
                     
                 case _:
-                    if animationView.isPaused {
-                        animationView.isPaused = false
+                    if animationView?.isPaused == true {
+                        animationView?.isPaused = false
                         controlButton.setTitle(AnimationState.pause.title, for: .normal)
                     } else {
-                        animationView.isPaused = true
+                        animationView?.isPaused = true
                         controlButton.setTitle(AnimationState.play.title, for: .normal)
                     }
                 }
@@ -96,21 +99,9 @@ class ViewController: UIViewController {
         
         stopButton.rx.tap
             .bind { [unowned self] in
-                animationView.removeFromSuperview()
+                controlButton.setTitle(AnimationState.play.title, for: .normal)
+                animationView?.removeFromSuperview()
+                animationView = nil
             }.disposed(by: disposeBag)
     }
-}
-
-extension ViewController {
-    func makeScene() -> SKScene {
-        let minimumDimension = min(view.frame.width, view.frame.height)
-        let size = CGSize(width: minimumDimension, height: minimumDimension)
-        
-        let scene = SKScene(size: size)
-        scene.backgroundColor = .black
-        return scene
-    }
-}
-
-extension SKLabelNode {
 }
