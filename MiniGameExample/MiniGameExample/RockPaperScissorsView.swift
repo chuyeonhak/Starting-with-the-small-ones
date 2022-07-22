@@ -1,5 +1,5 @@
 //
-//  RockPaperSissorsView.swift
+//  RockPaperScissorsView.swift
 //  MiniGameExample
 //
 //  Created by chuchu on 2022/07/22.
@@ -12,7 +12,7 @@ import RxCocoa
 import SnapKit
 import Then
 
-class RockPaperSissorsView: ReactivableView {
+class RockPaperScissorsView: ReactivableView {
     let rockLabel = UIView().then {
         $0.backgroundColor = .red
     }
@@ -21,7 +21,7 @@ class RockPaperSissorsView: ReactivableView {
         $0.backgroundColor = .blue
     }
     
-    let sissorsLabel = UIView().then {
+    let scissorsLabel = UIView().then {
         $0.backgroundColor = .yellow
     }
     
@@ -41,25 +41,25 @@ class RockPaperSissorsView: ReactivableView {
     }
     
     override func addComponent() {
-        [rockLabel, paperLabel, sissorsLabel].forEach(addSubview)
+        [rockLabel, paperLabel, scissorsLabel].forEach(addSubview)
     }
     
     override func setConstraints() {
         rockLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().inset(5)
             $0.size.equalTo(self.snp.width).dividedBy(3)
         }
         
         paperLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
-            $0.leading.equalTo(rockLabel.snp.trailing)
+            $0.leading.equalTo(rockLabel.snp.trailing).inset(5)
             $0.size.equalTo(self.snp.width).dividedBy(3)
         }
         
-        sissorsLabel.snp.makeConstraints {
+        scissorsLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
-            $0.leading.equalTo(paperLabel.snp.trailing)
+            $0.leading.equalTo(paperLabel.snp.trailing).inset(5)
             $0.size.equalTo(self.snp.width).dividedBy(3)
         }
     }
@@ -70,20 +70,21 @@ class RockPaperSissorsView: ReactivableView {
             sissorsTap = UITapGestureRecognizer()
         rockLabel.addGestureRecognizer(rockTap)
         paperLabel.addGestureRecognizer(paperTap)
-        sissorsLabel.addGestureRecognizer(sissorsTap)
+        scissorsLabel.addGestureRecognizer(sissorsTap)
         
         rockTap.rx.event
-            .bind { _ in
-                print("rock")
-            }.disposed(by: disposeBag)
-        paperTap.rx.event
-            .bind { _ in
-                print("paper")
-            }.disposed(by: disposeBag)
-        sissorsTap.rx.event
-            .bind { _ in
-                print("sissors")
+            .bind { [unowned self]_ in
+                print(rockLabel.bounds)
             }.disposed(by: disposeBag)
         
+        paperTap.rx.event
+            .bind { [unowned self]_ in
+                print(paperLabel.bounds)
+            }.disposed(by: disposeBag)
+        
+        sissorsTap.rx.event
+            .bind { [unowned self]_ in
+                print(scissorsLabel.bounds)
+            }.disposed(by: disposeBag)
     }
 }

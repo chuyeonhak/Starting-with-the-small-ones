@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     private func bind() {
         rockPaperScissorsButton.rx.tap
             .bind { [unowned self] in
-                addSubView(RockPaperSissorsView())
+                addSubView(RockPaperScissorsView())
             }.disposed(by: disposeBag)
     }
     
