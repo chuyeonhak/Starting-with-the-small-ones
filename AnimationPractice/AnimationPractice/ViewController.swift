@@ -13,27 +13,31 @@ import Then
 import SpriteKit
 
 class ViewController: UIViewController {
+    enum AnimationState {
+        case play
+        case pause
+        case stop
+        
+        var title: String {
+            switch self {
+            case .play: return "재생"
+            case .pause: return "멈춰"
+            case .stop: return "끝내기"
+            }
+        }
+    }
     private let disposeBag = DisposeBag()
     
     private lazy var animationView = SKView().then {
-        let scene = makeScene()
-        scene.addChild(snowFlowerImage)
-        
-        $0.frame.size = scene.size
-        $0.presentScene(scene)
+        $0.backgroundColor = .black
     }
     
-    private lazy var snowFlowerImage = SKSpriteNode(imageNamed: "snowFlower").then {
-        $0.position = CGPoint(x: 0, y: UIScreen.main.bounds.height)
+    let controlButton = UIButton().then {
+        $0.setTitle(AnimationState.play.title, for: .normal)
     }
     
-    
-    let button = UIButton().then {
-        $0.setTitle("재생", for: .normal)
-    }
-    
-    let imageView = UIImageView().then {
-        $0.image = UIImage(named: "snowFlower")
+    let stopButton = UIButton().then {
+        $0.setTitle(AnimationState.stop.title, for: .normal)
     }
     
     override func viewDidLoad() {
@@ -50,29 +54,49 @@ class ViewController: UIViewController {
     
     private func addComponent() {
         self.view.backgroundColor = .black
-        [animationView, button, imageView].forEach(view.addSubview)
+        [animationView, controlButton, stopButton].forEach(view.addSubview)
     }
     
     private func setConstraints() {
         animationView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        button.snp.makeConstraints {
+        
+        controlButton.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(16)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.size.equalTo(50)
         }
         
-        imageView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.size.equalTo(50)
+        stopButton.snp.makeConstraints {
+            $0.leading.equalTo(controlButton.snp.trailing)
+            $0.size.bottom.equalTo(controlButton)
         }
     }
     
     private func bind() {
-        button.rx.tap
-            .bind {
-                print("wow")
+        controlButton.rx.tap
+            .bind { [unowned self] in
+                switch animationView.scene {
+                case nil:
+                    let scene = SnowScene()
+                    animationView.presentScene(scene)
+                    controlButton.setTitle(AnimationState.pause.title, for: .normal)
+                    
+                case _:
+                    if animationView.isPaused {
+                        animationView.isPaused = false
+                        controlButton.setTitle(AnimationState.pause.title, for: .normal)
+                    } else {
+                        animationView.isPaused = true
+                        controlButton.setTitle(AnimationState.play.title, for: .normal)
+                    }
+                }
+            }.disposed(by: disposeBag)
+        
+        stopButton.rx.tap
+            .bind { [unowned self] in
+                animationView.removeFromSuperview()
             }.disposed(by: disposeBag)
     }
 }

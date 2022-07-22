@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFA474E8288A5C570087F8EE /* SnowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA474E7288A5C570087F8EE /* SnowScene.swift */; };
+		EFA474EA288A63270087F8EE /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA474E9288A63270087F8EE /* Snow.sks */; };
 		EFA66BE2288A36CD006F46A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BE1288A36CD006F46A0 /* AppDelegate.swift */; };
 		EFA66BE4288A36CD006F46A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BE3288A36CD006F46A0 /* SceneDelegate.swift */; };
 		EFA66BE6288A36CD006F46A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BE5288A36CD006F46A0 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EFA474E7288A5C570087F8EE /* SnowScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowScene.swift; sourceTree = "<group>"; };
+		EFA474E9288A63270087F8EE /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		EFA66BDE288A36CD006F46A0 /* AnimationPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA66BE1288A36CD006F46A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFA66BE3288A36CD006F46A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				EFA66BE1288A36CD006F46A0 /* AppDelegate.swift */,
 				EFA66BE3288A36CD006F46A0 /* SceneDelegate.swift */,
 				EFA66BE5288A36CD006F46A0 /* ViewController.swift */,
+				EFA474E7288A5C570087F8EE /* SnowScene.swift */,
+				EFA474E9288A63270087F8EE /* Snow.sks */,
 				EFA66BE7288A36CD006F46A0 /* Main.storyboard */,
 				EFA66BEA288A36CE006F46A0 /* Assets.xcassets */,
 				EFA66BEC288A36CE006F46A0 /* LaunchScreen.storyboard */,
@@ -149,6 +155,7 @@
 			files = (
 				EFA66BEE288A36CE006F46A0 /* LaunchScreen.storyboard in Resources */,
 				EFA66BEB288A36CE006F46A0 /* Assets.xcassets in Resources */,
+				EFA474EA288A63270087F8EE /* Snow.sks in Resources */,
 				EFA66BE9288A36CD006F46A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +170,7 @@
 				EFA66BE6288A36CD006F46A0 /* ViewController.swift in Sources */,
 				EFA66BE2288A36CD006F46A0 /* AppDelegate.swift in Sources */,
 				EFA66BE4288A36CD006F46A0 /* SceneDelegate.swift in Sources */,
+				EFA474E8288A5C570087F8EE /* SnowScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +246,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -292,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -309,7 +317,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6QDV2VZHAS;
+				DEVELOPMENT_TEAM = GP9D94CZ57;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimationPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -337,7 +345,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6QDV2VZHAS;
+				DEVELOPMENT_TEAM = GP9D94CZ57;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimationPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
