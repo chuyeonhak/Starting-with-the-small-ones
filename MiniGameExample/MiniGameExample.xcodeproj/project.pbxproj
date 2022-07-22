@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFA474EC288A99220087F8EE /* operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA474EB288A99220087F8EE /* operator.swift */; };
 		EFA66B9A2889505D006F46A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66B992889505D006F46A0 /* AppDelegate.swift */; };
 		EFA66B9C2889505D006F46A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66B9B2889505D006F46A0 /* SceneDelegate.swift */; };
 		EFA66B9E2889505D006F46A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66B9D2889505D006F46A0 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EFA474EB288A99220087F8EE /* operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operator.swift; sourceTree = "<group>"; };
 		EFA66B962889505D006F46A0 /* MiniGameExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGameExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA66B992889505D006F46A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFA66B9B2889505D006F46A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				EFA66BC428895BA9006F46A0 /* Extension + UITextField.swift */,
 				EFA66BBD28895AEA006F46A0 /* Extension + UITextView.swift */,
 				EFA66BC628895C49006F46A0 /* Extension + UIViewController.swift */,
+				EFA474EB288A99220087F8EE /* operator.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				EFA66B9C2889505D006F46A0 /* SceneDelegate.swift in Sources */,
 				EFA66BC028895B34006F46A0 /* Extension + UIColor.swift in Sources */,
 				EFA66BC528895BA9006F46A0 /* Extension + UITextField.swift in Sources */,
+				EFA474EC288A99220087F8EE /* operator.swift in Sources */,
 				EFA66BD2288A14FF006F46A0 /* RockPaperScissorsView.swift in Sources */,
 				EFA66BD02889662F006F46A0 /* DeinitPrinter.swift in Sources */,
 			);
