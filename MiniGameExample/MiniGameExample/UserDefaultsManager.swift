@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultKeys: String {
     case greatestWinningStreak
+    case currentWinningStreak
 }
 
 struct UserDefaultsManager {
@@ -21,6 +22,16 @@ struct UserDefaultsManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey:  UserDefaultKeys.greatestWinningStreak.rawValue)
+        }
+    }
+    
+    var currentWinningStreak: Int {
+        get {
+            guard let currentWinningStreak = UserDefaults.standard.value(forKey: UserDefaultKeys.currentWinningStreak.rawValue) as? Int else { return 0 }
+            return currentWinningStreak
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey:  UserDefaultKeys.currentWinningStreak.rawValue)
         }
     }
 }

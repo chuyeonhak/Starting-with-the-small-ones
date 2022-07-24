@@ -24,7 +24,8 @@ class RockPaperScissorsViewModel: ViewModel {
     struct Model {
         let toastMessage = PublishSubject<String>()
         let gameState = BehaviorRelay<GameState>(value: .ready)
-        let winningStreak = BehaviorRelay<Int>(value: 0)
+        let greatestWinningStreak = UserDefaults.standard.rx.observe(Int.self, UserDefaultKeys.greatestWinningStreak.rawValue)
+        let currentWinningStreak = UserDefaults.standard.rx.observe(Int.self, UserDefaultKeys.currentWinningStreak.rawValue)
     }
     
     struct Input {
@@ -34,6 +35,8 @@ class RockPaperScissorsViewModel: ViewModel {
     
     struct Output {
         let gameState: Driver<GameState>
+        let greatestWinningStreak: Driver<Int>
+        let currentWinningStreak: Driver<Int>
     }
     
     required init(input: Input) {
@@ -47,7 +50,9 @@ class RockPaperScissorsViewModel: ViewModel {
             .bind { [weak self] in self?.pickWinner(computer: $0.0, user: $0.1) }
             .disposed(by: disposeBag)
         
-        output = Output(gameState: model.gameState.asDriverOnErrorEmpty())
+        output = Output(gameState: model.gameState.asDriverOnErrorEmpty(),
+                        greatestWinningStreak: model.greatestWinningStreak.map { $0 ?? 0 }.asDriverOnErrorEmpty(),
+                        currentWinningStreak: model.currentWinningStreak.map { $0 ?? 0 }.asDriverOnErrorEmpty())
     }
     
     private func isPlaying(isStartButtonTap: Bool = false) -> Bool {
@@ -63,12 +68,16 @@ class RockPaperScissorsViewModel: ViewModel {
         model.gameState.accept(.ready)
         let computerNum = computer % 10,
             userNum = user % 10,
-            winningStreak = model.winningStreak.value
+            currentWinningStreak = UserDefaultsManager.shared.currentWinningStreak
         
         switch (computerNum, userNum) {
         case (let com, let user) where com == user: print("draw")
-        case (3, 5), (5, 7), (7, 3): print("user Win"); model.winningStreak.accept(winningStreak + 1)
-        case (5, 3), (7, 5), (3, 7) : print("computer Win"); model.winningStreak.accept(0)
+        case (3, 5), (5, 7), (7, 3): print("user Win")
+            UserDefaultsManager.shared.currentWinningStreak = currentWinningStreak + 1
+            if UserDefaultsManager.shared.currentWinningStreak > UserDefaultsManager.shared.greatestWinningStreak {
+                UserDefaultsManager.shared.greatestWinningStreak = UserDefaultsManager.shared.currentWinningStreak
+            }
+        case (5, 3), (7, 5), (3, 7) : print("computer Win"); UserDefaultsManager.shared.currentWinningStreak = 0
         default: break
         }
     }

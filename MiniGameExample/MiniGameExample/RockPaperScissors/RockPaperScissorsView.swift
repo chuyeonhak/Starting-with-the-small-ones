@@ -62,6 +62,14 @@ class RockPaperScissorsView: ReactivableView {
         $0.tag = 27
     }
     
+    let greatestWinningLabel = UILabel().then {
+        $0.text = "최대 0연승"
+    }
+    
+    let currentWinningLabel = UILabel().then {
+        $0.text = "현재 0연승"
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -79,7 +87,7 @@ class RockPaperScissorsView: ReactivableView {
     
     override func addComponent() {
         self.backgroundColor = .white
-        [rockLabel, paperLabel, scissorsLabel, startButton, backButton, userSelectView].forEach(addSubview)
+        [rockLabel, paperLabel, scissorsLabel, startButton, backButton, userSelectView, greatestWinningLabel, currentWinningLabel].forEach(addSubview)
         
         [userRock, userPaper, userScissors].forEach(userSelectView.addSubview)
     }
@@ -138,6 +146,15 @@ class RockPaperScissorsView: ReactivableView {
             $0.leading.equalTo(userPaper.snp.trailing)
             $0.width.equalToSuperview().dividedBy(3)
         }
+        
+        greatestWinningLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        currentWinningLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(greatestWinningLabel.snp.bottom)
+        }
     }
     
     override func bind() {
@@ -185,16 +202,14 @@ class RockPaperScissorsView: ReactivableView {
                 }
             }.disposed(by: disposeBag)
         
-        viewModel?.model.winningStreak
-            .bind {
-                if $0 > UserDefaultsManager.shared.greatestWinningStreak {
-                    UserDefaultsManager.shared.greatestWinningStreak = $0
-                }
-                print("현재 연승 \($0)")
-            }.disposed(by: disposeBag)
+        viewModel?.output?.greatestWinningStreak
+            .map { "최대 \($0)연승" }
+            .drive(greatestWinningLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        UserDefaults.standard.rx.observe(Int.self, UserDefaultKeys.greatestWinningStreak.rawValue)
-            .bind { print("최대 연승 == \($0)") }
+        viewModel?.output?.currentWinningStreak
+            .map { "현재 \($0)연승"}
+            .drive(currentWinningLabel.rx.text)
             .disposed(by: disposeBag)
     }
     
