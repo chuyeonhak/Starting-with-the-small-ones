@@ -16,3 +16,4 @@
 <div align=center><h2> MiniGame 🎮 </h2></div>
 
 - 초기 구조 잡음
+- 가위바위보 게임
