@@ -18,6 +18,9 @@ class RockPaperScissorsView: ReactivableView {
     }
     
     var animator = UIViewPropertyAnimator()
+    
+    var timer: Timer?
+    
     let rockLabel = UIView().then {
         $0.backgroundColor = .red
     }
@@ -33,7 +36,11 @@ class RockPaperScissorsView: ReactivableView {
     let startButton = UIButton().then {
         $0.setTitle("Start", for: .normal)
         $0.backgroundColor = .gray
-        
+    }
+    
+    let backButton = UIButton().then {
+        $0.backgroundColor = .black
+        $0.setTitle("exit", for: .normal)
     }
     
     override init(frame: CGRect) {
@@ -53,25 +60,25 @@ class RockPaperScissorsView: ReactivableView {
     
     override func addComponent() {
         self.backgroundColor = .white
-        [rockLabel, paperLabel, scissorsLabel, startButton].forEach(addSubview)
+        [rockLabel, paperLabel, scissorsLabel, startButton, backButton].forEach(addSubview)
     }
     
     override func setConstraints() {
         rockLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
-            $0.leading.equalToSuperview()
+            $0.centerX.equalToSuperview()
             $0.size.equalTo(self.snp.width).dividedBy(3)
         }
         
         paperLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
-            $0.leading.equalTo(rockLabel.snp.trailing)
+            $0.centerX.equalToSuperview()
             $0.size.equalTo(self.snp.width).dividedBy(3)
         }
         
         scissorsLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(50)
-            $0.leading.equalTo(paperLabel.snp.trailing)
+            $0.centerX.equalToSuperview()
             $0.size.equalTo(self.snp.width).dividedBy(3)
         }
         
@@ -80,8 +87,12 @@ class RockPaperScissorsView: ReactivableView {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(120)
             $0.height.equalTo(50)
-            
-            
+        }
+        
+        backButton.snp.makeConstraints {
+            $0.leading.equalTo(startButton.snp.trailing).offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.top.height.equalTo(startButton)
         }
     }
     
@@ -91,48 +102,63 @@ class RockPaperScissorsView: ReactivableView {
     }
     
     private func gameStart() {
-        let firstAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
-            _ = [self.rockLabel, self.scissorsLabel].map {
-                $0.frame.origin.x = 130
-                }
-        }
-        
-        let secondAnimator = UIViewPropertyAnimator(duration: 0.1, curve: .linear) {
-            self.bringSubviewToFront(self.rockLabel)
-        }
-        
-        firstAnimator ~> secondAnimator
-        firstAnimator.startAnimation()
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(rockpaperScissors), userInfo: nil, repeats: true)
     }
     
     private func setCocoaTap() {
         startButton.rx.tap
+            .filter{ [weak self] _ in self?.timer == nil }
             .bind { [weak self] in
                 self?.gameStart()
+            }.disposed(by: disposeBag)
+        
+        backButton.rx.tap
+            .bind { [weak self] in
+                self?.timerStop()
+                self?.removeFromSuperview()
             }.disposed(by: disposeBag)
     }
     
     private func setTapGesture() {
         let rockTap = UITapGestureRecognizer(),
             paperTap = UITapGestureRecognizer(),
-            sissorsTap = UITapGestureRecognizer()
+            scissorsTap = UITapGestureRecognizer()
         rockLabel.addGestureRecognizer(rockTap)
         paperLabel.addGestureRecognizer(paperTap)
-        scissorsLabel.addGestureRecognizer(sissorsTap)
+        scissorsLabel.addGestureRecognizer(scissorsTap)
         
         rockTap.rx.event
             .bind { [unowned self]_ in
-                print("rockLabel")
+                self.timer?.invalidate()
+                self.timer = nil
+                print("rockTap")
             }.disposed(by: disposeBag)
         
         paperTap.rx.event
             .bind { [unowned self]_ in
-                print("paperLabel")
+                self.timer?.invalidate()
+                self.timer = nil
+                print("paperTap")
             }.disposed(by: disposeBag)
         
-        sissorsTap.rx.event
+        scissorsTap.rx.event
             .bind { [unowned self]_ in
-                print("scissorsLabel")
+                self.timer?.invalidate()
+                self.timer = nil
+                print("scissors")
             }.disposed(by: disposeBag)
+    }
+    
+    private func timerStop() {
+        timer?.invalidate()
+        timer = nil
+    }
+}
+
+extension RockPaperScissorsView {
+    @objc func rockpaperScissors() {
+        guard let randomView = [scissorsLabel, paperLabel, rockLabel].randomElement() else { return }
+        
+        bringSubviewToFront(randomView)
     }
 }
