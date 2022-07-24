@@ -11,14 +11,9 @@ import RxSwift
 import RxCocoa
 import SnapKit
 import Then
+import Toast
 
 class RockPaperScissorsView: ReactivableView {
-    enum RPSType {
-        case rock, paper, scissors
-    }
-    
-    var animator = UIViewPropertyAnimator()
-    
     var viewModel: RockPaperScissorsViewModel?
     
     var timer: Timer?
@@ -146,10 +141,8 @@ class RockPaperScissorsView: ReactivableView {
     }
     
     override func bind() {
-        setTapGesture()
+        setInput()
         setCocoaTap()
-        
-        viewModel = RockPaperScissorsViewModel(input: RockPaperScissorsViewModel.Input())
     }
     
     private func gameStart() {
@@ -157,12 +150,6 @@ class RockPaperScissorsView: ReactivableView {
     }
     
     private func setCocoaTap() {
-        startButton.rx.tap
-            .filter{ [weak self] _ in self?.timer == nil }
-            .bind { [weak self] in
-                self?.gameStart()
-            }.disposed(by: disposeBag)
-        
         backButton.rx.tap
             .bind { [weak self] in
                 self?.timerStop()
@@ -170,44 +157,50 @@ class RockPaperScissorsView: ReactivableView {
             }.disposed(by: disposeBag)
     }
     
-    private func setTapGesture() {
-        let rockTap = UITapGestureRecognizer(),
-            paperTap = UITapGestureRecognizer(),
-            scissorsTap = UITapGestureRecognizer(),
-            userRockTap = UITapGestureRecognizer(),
+    private func setInput() {
+        let userRockTap = UITapGestureRecognizer(),
             userPaperTap = UITapGestureRecognizer(),
             userScissorsTap = UITapGestureRecognizer()
-        rockLabel.addGestureRecognizer(rockTap)
-        paperLabel.addGestureRecognizer(paperTap)
-        scissorsLabel.addGestureRecognizer(scissorsTap)
+        
         userRock.addGestureRecognizer(userRockTap)
         userPaper.addGestureRecognizer(userPaperTap)
         userScissors.addGestureRecognizer(userScissorsTap)
         
-        Observable.of(userRockTap.rx.event, userPaperTap.rx.event, userScissorsTap.rx.event)
-            .merge()
-            .bind { [weak self] touch in
-                self?.timerStop()
-                self?.pickWinner(computer: self?.subviews.last?.tag, user: touch.view?.tag)
+        let input = RockPaperScissorsViewModel.Input(startButtonTapped: startButton.rx.tap.asObservable(),
+                                                     userTapped: Observable.of(userRockTap.rx.event, userPaperTap.rx.event, userScissorsTap.rx.event).merge().map {[unowned self] touch in (subviews.last?.tag, touch.view?.tag)})
+        
+        viewModel = RockPaperScissorsViewModel(input: input)
+        
+        viewModel?.model.toastMessage
+            .bind { [weak self] message in
+                self?.makeToast(message)
             }.disposed(by: disposeBag)
+        
+        viewModel?.output?.gameState
+            .skip(1)
+            .drive { [weak self] state in
+                switch state {
+                case .isPlaying: self?.gameStart()
+                case .ready: self?.timerStop()
+                }
+            }.disposed(by: disposeBag)
+        
+        viewModel?.model.winningStreak
+            .bind {
+                if $0 > UserDefaultsManager.shared.greatestWinningStreak {
+                    UserDefaultsManager.shared.greatestWinningStreak = $0
+                }
+                print("현재 연승 \($0)")
+            }.disposed(by: disposeBag)
+        
+        UserDefaults.standard.rx.observe(Int.self, UserDefaultKeys.greatestWinningStreak.rawValue)
+            .bind { print("최대 연승 == \($0)") }
+            .disposed(by: disposeBag)
     }
     
     private func timerStop() {
         timer?.invalidate()
         timer = nil
-    }
-    
-    private func pickWinner(computer: Int?, user: Int?) {
-        guard let computer = computer, let user = user else { return }
-        let computerNum = computer % 10,
-            userNum = user % 10
-        
-        switch (computerNum, userNum) {
-        case (let com, let user) where com == user: print("draw")
-        case (3, 5), (5, 7), (7, 3): print("user win")
-        case (5, 3), (7, 5), (3, 7) : print("computerWin")
-        default: print("default는 안 나올거야 \(computerNum) \(userNum)")
-        }
     }
 }
 

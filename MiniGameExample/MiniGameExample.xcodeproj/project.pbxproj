@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EFA474EC288A99220087F8EE /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA474EB288A99220087F8EE /* Operator.swift */; };
+		EFA474EF288D3A6B0087F8EE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA474EE288D3A6B0087F8EE /* UserDefaultsManager.swift */; };
 		EFA66B9A2889505D006F46A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66B992889505D006F46A0 /* AppDelegate.swift */; };
 		EFA66B9C2889505D006F46A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66B9B2889505D006F46A0 /* SceneDelegate.swift */; };
 		EFA66B9E2889505D006F46A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66B9D2889505D006F46A0 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		EFA474EB288A99220087F8EE /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		EFA474EE288D3A6B0087F8EE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		EFA66B962889505D006F46A0 /* MiniGameExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGameExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA66B992889505D006F46A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFA66B9B2889505D006F46A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				EFA474ED288A9B030087F8EE /* RockPaperScissors */,
 				EFA66BCE288961DD006F46A0 /* Declaration */,
 				EFA66BBC28895969006F46A0 /* Extension */,
+				EFA474EE288D3A6B0087F8EE /* UserDefaultsManager.swift */,
 				EFA66B9F2889505D006F46A0 /* Main.storyboard */,
 				EFA66BA22889505E006F46A0 /* Assets.xcassets */,
 				EFA66BA42889505E006F46A0 /* LaunchScreen.storyboard */,
@@ -230,6 +233,7 @@
 				EFA66BD4288A150D006F46A0 /* RockPaperScissorsViewModel.swift in Sources */,
 				EFA66BBB288958F8006F46A0 /* Extension + RxSwift.swift in Sources */,
 				EFA66BC728895C49006F46A0 /* Extension + UIViewController.swift in Sources */,
+				EFA474EF288D3A6B0087F8EE /* UserDefaultsManager.swift in Sources */,
 				EFA66BC928895CC7006F46A0 /* Extension + Array.swift in Sources */,
 				EFA66BBE28895AEA006F46A0 /* Extension + UITextView.swift in Sources */,
 				EFA66B9A2889505D006F46A0 /* AppDelegate.swift in Sources */,
