@@ -33,6 +33,8 @@
 		EFA66BD2288A14FF006F46A0 /* RockPaperScissorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD1288A14FF006F46A0 /* RockPaperScissorsView.swift */; };
 		EFA66BD4288A150D006F46A0 /* RockPaperScissorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD3288A150D006F46A0 /* RockPaperScissorsViewModel.swift */; };
 		EFB05D15288E21FA0089CEA7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFB05D13288E21FA0089CEA7 /* Model.xcdatamodeld */; };
+		EFE6B10C288E5C480093896B /* CareerRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6B10A288E5C480093896B /* CareerRecord+CoreDataClass.swift */; };
+		EFE6B10D288E5C480093896B /* CareerRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6B10B288E5C480093896B /* CareerRecord+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		EFA66BD1288A14FF006F46A0 /* RockPaperScissorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsView.swift; sourceTree = "<group>"; };
 		EFA66BD3288A150D006F46A0 /* RockPaperScissorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsViewModel.swift; sourceTree = "<group>"; };
 		EFB05D14288E21FA0089CEA7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		EFE6B10A288E5C480093896B /* CareerRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CareerRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EFE6B10B288E5C480093896B /* CareerRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CareerRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 		EFA66B8D2889505D006F46A0 = {
 			isa = PBXGroup;
 			children = (
+				EFE6B10A288E5C480093896B /* CareerRecord+CoreDataClass.swift */,
+				EFE6B10B288E5C480093896B /* CareerRecord+CoreDataProperties.swift */,
 				EFA66B982889505D006F46A0 /* MiniGameExample */,
 				EFA66B972889505D006F46A0 /* Products */,
 			);
@@ -240,8 +246,10 @@
 				EFA66BC928895CC7006F46A0 /* Extension + Array.swift in Sources */,
 				EFB05D15288E21FA0089CEA7 /* Model.xcdatamodeld in Sources */,
 				EFA66BBE28895AEA006F46A0 /* Extension + UITextView.swift in Sources */,
+				EFE6B10C288E5C480093896B /* CareerRecord+CoreDataClass.swift in Sources */,
 				EFA66B9A2889505D006F46A0 /* AppDelegate.swift in Sources */,
 				EFA66B9C2889505D006F46A0 /* SceneDelegate.swift in Sources */,
+				EFE6B10D288E5C480093896B /* CareerRecord+CoreDataProperties.swift in Sources */,
 				EFA66BC028895B34006F46A0 /* Extension + UIColor.swift in Sources */,
 				EFA66BC528895BA9006F46A0 /* Extension + UITextField.swift in Sources */,
 				EFA474EC288A99220087F8EE /* Operator.swift in Sources */,
