@@ -20,17 +20,36 @@ class RockPaperScissorsView: ReactivableView {
     var timer: Timer?
     
     let rockLabel = UIView().then {
-        $0.backgroundColor = .red
+        let imageView = UIImageView()
+        imageView.image = Const.Asset.rock.image
+        $0.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        
+        $0.backgroundColor = .white
         $0.tag = 33
     }
     
     let paperLabel = UIView().then {
-        $0.backgroundColor = .blue
+        let imageView = UIImageView()
+        imageView.image = Const.Asset.paper.image
+        $0.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        
+        $0.backgroundColor = .white
         $0.tag = 35
     }
     
     let scissorsLabel = UIView().then {
-        $0.backgroundColor = .yellow
+        let imageView = UIImageView()
+        imageView.image = Const.Asset.scissors.image
+        
+        $0.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        
+        $0.backgroundColor = .white
         $0.tag = 37
     }
     
@@ -49,18 +68,24 @@ class RockPaperScissorsView: ReactivableView {
     }
     
     let userRock = UIButton().then {
-        $0.backgroundColor = .red
+        let image = Const.Asset.rock.image
+        $0.setImage(image, for: .normal)
         $0.tag = 23
+        $0.adjustsImageWhenHighlighted = false
     }
     
     let userPaper = UIButton().then {
-        $0.backgroundColor = .blue
+        let image = Const.Asset.paper.image
+        $0.setImage(image, for: .normal)
         $0.tag = 25
+        $0.adjustsImageWhenHighlighted = false
     }
     
     let userScissors = UIButton().then {
-        $0.backgroundColor = .yellow
+        let image = Const.Asset.scissors.image
+        $0.setImage(image, for: .normal)
         $0.tag = 27
+        $0.adjustsImageWhenHighlighted = false
     }
     
     let greatestWinningLabel = UILabel().then {
@@ -113,7 +138,7 @@ class RockPaperScissorsView: ReactivableView {
         }
         
         startButton.snp.makeConstraints {
-            $0.bottom.equalTo(safeAreaLayoutGuide)
+            $0.bottom.equalTo(safeAreaLayoutGuide).inset(16)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(120)
             $0.height.equalTo(50)
@@ -126,9 +151,9 @@ class RockPaperScissorsView: ReactivableView {
         }
         
         userSelectView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(16)
-            $0.top.height.equalTo(startButton)
-            $0.trailing.equalTo(startButton.snp.leading).offset(-16.0)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalTo(startButton.snp.top).inset(-16)
+            $0.height.equalTo((UIScreen.main.bounds.width - 32.0) / 3)
         }
         
         userRock.snp.makeConstraints {

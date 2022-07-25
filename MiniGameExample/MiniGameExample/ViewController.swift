@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     let rockPaperScissorsButton = UIButton().then {
-        $0.setImage(UIImage(named: "lockPaperScissors"), for: .normal)
+        $0.setImage(UIImage(named: "rockPaperScissors"), for: .normal)
     }
     
     override func viewDidLoad() {

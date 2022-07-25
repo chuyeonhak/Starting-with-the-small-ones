@@ -32,6 +32,8 @@
 		EFA66BD02889662F006F46A0 /* DeinitPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BCF2889662F006F46A0 /* DeinitPrinter.swift */; };
 		EFA66BD2288A14FF006F46A0 /* RockPaperScissorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD1288A14FF006F46A0 /* RockPaperScissorsView.swift */; };
 		EFA66BD4288A150D006F46A0 /* RockPaperScissorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD3288A150D006F46A0 /* RockPaperScissorsViewModel.swift */; };
+		EFA76276288E84930016FB82 /* RockPaperScissors + Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA76275288E84930016FB82 /* RockPaperScissors + Const.swift */; };
+		EFA7627A288E91F20016FB82 /* winSound.m4p in Resources */ = {isa = PBXBuildFile; fileRef = EFA76279288E91F20016FB82 /* winSound.m4p */; };
 		EFB05D15288E21FA0089CEA7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFB05D13288E21FA0089CEA7 /* Model.xcdatamodeld */; };
 		EFE6B10C288E5C480093896B /* CareerRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6B10A288E5C480093896B /* CareerRecord+CoreDataClass.swift */; };
 		EFE6B10D288E5C480093896B /* CareerRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6B10B288E5C480093896B /* CareerRecord+CoreDataProperties.swift */; };
@@ -59,6 +61,8 @@
 		EFA66BCF2889662F006F46A0 /* DeinitPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeinitPrinter.swift; sourceTree = "<group>"; };
 		EFA66BD1288A14FF006F46A0 /* RockPaperScissorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsView.swift; sourceTree = "<group>"; };
 		EFA66BD3288A150D006F46A0 /* RockPaperScissorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsViewModel.swift; sourceTree = "<group>"; };
+		EFA76275288E84930016FB82 /* RockPaperScissors + Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RockPaperScissors + Const.swift"; sourceTree = "<group>"; };
+		EFA76279288E91F20016FB82 /* winSound.m4p */ = {isa = PBXFileReference; lastKnownFileType = file; path = winSound.m4p; sourceTree = "<group>"; };
 		EFB05D14288E21FA0089CEA7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EFE6B10A288E5C480093896B /* CareerRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CareerRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EFE6B10B288E5C480093896B /* CareerRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CareerRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			children = (
 				EFA66BD1288A14FF006F46A0 /* RockPaperScissorsView.swift */,
 				EFA66BD3288A150D006F46A0 /* RockPaperScissorsViewModel.swift */,
+				EFA76275288E84930016FB82 /* RockPaperScissors + Const.swift */,
 			);
 			path = RockPaperScissors;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				EFA66BCE288961DD006F46A0 /* Declaration */,
 				EFA66BBC28895969006F46A0 /* Extension */,
 				EFA474EE288D3A6B0087F8EE /* UserDefaultsManager.swift */,
+				EFA76279288E91F20016FB82 /* winSound.m4p */,
 				EFA66B9F2889505D006F46A0 /* Main.storyboard */,
 				EFA66BA22889505E006F46A0 /* Assets.xcassets */,
 				EFA66BA42889505E006F46A0 /* LaunchScreen.storyboard */,
@@ -223,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA7627A288E91F20016FB82 /* winSound.m4p in Resources */,
 				EFA66BA62889505E006F46A0 /* LaunchScreen.storyboard in Resources */,
 				EFA66BA32889505E006F46A0 /* Assets.xcassets in Resources */,
 				EFA66BA12889505D006F46A0 /* Main.storyboard in Resources */,
@@ -236,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA76276288E84930016FB82 /* RockPaperScissors + Const.swift in Sources */,
 				EFA66BCD28896078006F46A0 /* ReactivableView.swift in Sources */,
 				EFA66BCB28896041006F46A0 /* ViewModel.swift in Sources */,
 				EFA66B9E2889505D006F46A0 /* ViewController.swift in Sources */,

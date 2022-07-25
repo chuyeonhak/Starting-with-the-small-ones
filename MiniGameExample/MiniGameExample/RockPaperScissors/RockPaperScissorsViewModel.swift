@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import CoreData
+import AVFoundation
 
 class RockPaperScissorsViewModel: ViewModel {
     enum GameState {
@@ -19,6 +20,7 @@ class RockPaperScissorsViewModel: ViewModel {
     var input: Input?
     var output: Output?
     var disposeBag = DisposeBag()
+    var player: AVAudioPlayer?
     
     var deinitPrinter = DeinitPrinter()
     
@@ -78,8 +80,24 @@ class RockPaperScissorsViewModel: ViewModel {
             if UserDefaultsManager.shared.currentWinningStreak > UserDefaultsManager.shared.greatestWinningStreak {
                 UserDefaultsManager.shared.greatestWinningStreak = UserDefaultsManager.shared.currentWinningStreak
             }
+            
         case (5, 3), (7, 5), (3, 7) : print("computer Win"); UserDefaultsManager.shared.currentWinningStreak = 0
         default: break
         }
+        playSound()
+    }
+    
+    private func playSound() {
+        guard let url = Bundle.main.url(forResource: "winSound", withExtension: "m4p") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url)
+            
+            player?.prepareToPlay()
+            player?.play()
+        } catch let error { print(error.localizedDescription) }
     }
 }
