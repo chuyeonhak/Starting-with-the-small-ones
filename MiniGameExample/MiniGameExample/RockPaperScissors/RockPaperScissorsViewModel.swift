@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import CoreData
 
 class RockPaperScissorsViewModel: ViewModel {
     enum GameState {
@@ -18,6 +19,31 @@ class RockPaperScissorsViewModel: ViewModel {
     var input: Input?
     var output: Output?
     var disposeBag = DisposeBag()
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Model")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        
+        return container
+    }()
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        
+        if context.hasChanges {
+            do {
+                try context.save()
+                
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
     
     var deinitPrinter = DeinitPrinter()
     
@@ -53,6 +79,17 @@ class RockPaperScissorsViewModel: ViewModel {
         output = Output(gameState: model.gameState.asDriverOnErrorEmpty(),
                         greatestWinningStreak: model.greatestWinningStreak.map { $0 ?? 0 }.asDriverOnErrorEmpty(),
                         currentWinningStreak: model.currentWinningStreak.map { $0 ?? 0 }.asDriverOnErrorEmpty())
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "CareerRecord", in: persistentContainer.viewContext) else { return }
+        let careerRecord = NSManagedObject(entity: entity, insertInto: persistentContainer.viewContext)
+        
+        guard let losses = careerRecord.value(forKey: "losses") as? Int else { return }
+        careerRecord.setValue(losses + 3, forKey: "losses")
+        careerRecord.setValue(1, forKey: "draws")
+        careerRecord.setValue(2, forKey: "wins")
+        saveContext()
+        
+        print(careerRecord)
     }
     
     private func isPlaying(isStartButtonTap: Bool = false) -> Bool {

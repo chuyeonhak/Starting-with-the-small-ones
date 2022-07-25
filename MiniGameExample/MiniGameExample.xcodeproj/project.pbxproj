@@ -32,6 +32,7 @@
 		EFA66BD02889662F006F46A0 /* DeinitPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BCF2889662F006F46A0 /* DeinitPrinter.swift */; };
 		EFA66BD2288A14FF006F46A0 /* RockPaperScissorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD1288A14FF006F46A0 /* RockPaperScissorsView.swift */; };
 		EFA66BD4288A150D006F46A0 /* RockPaperScissorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA66BD3288A150D006F46A0 /* RockPaperScissorsViewModel.swift */; };
+		EFB05D15288E21FA0089CEA7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFB05D13288E21FA0089CEA7 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		EFA66BCF2889662F006F46A0 /* DeinitPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeinitPrinter.swift; sourceTree = "<group>"; };
 		EFA66BD1288A14FF006F46A0 /* RockPaperScissorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsView.swift; sourceTree = "<group>"; };
 		EFA66BD3288A150D006F46A0 /* RockPaperScissorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsViewModel.swift; sourceTree = "<group>"; };
+		EFB05D14288E21FA0089CEA7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				EFA66BA22889505E006F46A0 /* Assets.xcassets */,
 				EFA66BA42889505E006F46A0 /* LaunchScreen.storyboard */,
 				EFA66BA72889505E006F46A0 /* Info.plist */,
+				EFB05D13288E21FA0089CEA7 /* Model.xcdatamodeld */,
 			);
 			path = MiniGameExample;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				EFA66BC728895C49006F46A0 /* Extension + UIViewController.swift in Sources */,
 				EFA474EF288D3A6B0087F8EE /* UserDefaultsManager.swift in Sources */,
 				EFA66BC928895CC7006F46A0 /* Extension + Array.swift in Sources */,
+				EFB05D15288E21FA0089CEA7 /* Model.xcdatamodeld in Sources */,
 				EFA66BBE28895AEA006F46A0 /* Extension + UITextView.swift in Sources */,
 				EFA66B9A2889505D006F46A0 /* AppDelegate.swift in Sources */,
 				EFA66B9C2889505D006F46A0 /* SceneDelegate.swift in Sources */,
@@ -389,7 +393,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6QDV2VZHAS;
+				DEVELOPMENT_TEAM = GP9D94CZ57;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniGameExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -417,7 +421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6QDV2VZHAS;
+				DEVELOPMENT_TEAM = GP9D94CZ57;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniGameExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -528,6 +532,19 @@
 			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		EFB05D13288E21FA0089CEA7 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFB05D14288E21FA0089CEA7 /* Model.xcdatamodel */,
+			);
+			currentVersion = EFB05D14288E21FA0089CEA7 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFA66B8E2889505D006F46A0 /* Project object */;
 }

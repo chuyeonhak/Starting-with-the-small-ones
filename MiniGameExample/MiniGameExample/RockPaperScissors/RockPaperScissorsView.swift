@@ -12,6 +12,7 @@ import RxCocoa
 import SnapKit
 import Then
 import Toast
+import CoreData
 
 class RockPaperScissorsView: ReactivableView {
     var viewModel: RockPaperScissorsViewModel?
